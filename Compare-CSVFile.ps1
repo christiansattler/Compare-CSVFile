@@ -1,24 +1,5 @@
-﻿#cd C:\Users\xattler\Desktop\ps201901\ps-compare
-
-#Set-Location -Path C:\Users\xattler\Desktop\ps201901\ps-compare
-
-# Compare-CSVFile test-1-reference.csv test-1-diff-in-first-line.csv -Identifier col1,col2 <#| Where { $_.SideIndicator -eq "=>" -and $_.diff -eq "<>" }#> | Format-Table -Autosize #-Header numbers
-#Compare-CSVFile test-1-reference.csv test-1-diff-in-first-line.csv -Identifier col1,col2 | Where { $_.SideIndicator -eq "=>" -and $_.DiffIndicator -eq "<>" } | Format-Table -Autosize 
-#Compare-CSVFile test-1-reference.csv test-1-diff-in-first-line.csv -Identifier col1,col2 | Where { $_.SideIndicator -eq "=>"  } | Format-Table -Autosize 
-#Compare-CSVFile test-1-reference.csv test-1-diff-in-first-line.csv -Identifier col1,col2 | Format-Table -Autosize
-
-#(Compare-CSVFile test-1-reference.csv test-1-diff-in-first-line.csv -Identifier col1,col2) | Where { $_.SideIndicator -eq "=>"  } | Format-Table -Autosize 
-#(Compare-CSVFile test-1-reference.csv test-1-diff-in-first-line.csv -Identifier col1,col2 -Output diff) | Format-Table -Autosize 
-
-#Compare-CSVFile s.csv s2.csv -Identifier first,last,age | Format-Table -Autosize 
-
-
-
+﻿
 #$VerbosePreference="Continue";
-
-
-#TODO: Delimiter falsch... führt zu fehlendem Diff und das wird nicht erkannt: besser => throw
-
 
 function Compare-CSVFile {
     <#
@@ -360,5 +341,21 @@ function Compare-CSVFile {
 
     Write-Verbose "End. Elapsed $( (Get-Date)-$Started )"
 }
+
+# tests
+
+#cd C:\Users\xattler\Desktop\ps201901\ps-compare
+
+#Set-Location -Path C:\Users\xattler\Desktop\ps201901\ps-compare
+
+# Compare-CSVFile test-1-reference.csv test-1-diff-in-first-line.csv -Identifier col1,col2 <#| Where { $_.SideIndicator -eq "=>" -and $_.diff -eq "<>" }#> | Format-Table -Autosize #-Header numbers
+#Compare-CSVFile test-1-reference.csv test-1-diff-in-first-line.csv -Identifier col1,col2 | Where { $_.SideIndicator -eq "=>" -and $_.DiffIndicator -eq "<>" } | Format-Table -Autosize 
+#Compare-CSVFile test-1-reference.csv test-1-diff-in-first-line.csv -Identifier col1,col2 | Where { $_.SideIndicator -eq "=>"  } | Format-Table -Autosize 
+#Compare-CSVFile test-1-reference.csv test-1-diff-in-first-line.csv -Identifier col1,col2 | Format-Table -Autosize
+
+#(Compare-CSVFile test-1-reference.csv test-1-diff-in-first-line.csv -Identifier col1,col2) | Where { $_.SideIndicator -eq "=>"  } | Format-Table -Autosize 
+#(Compare-CSVFile test-1-reference.csv test-1-diff-in-first-line.csv -Identifier col1,col2 -Output diff) | Format-Table -Autosize 
+
+#Compare-CSVFile s.csv s2.csv -Identifier first,last,age | Format-Table -Autosize 
 
 # eof
